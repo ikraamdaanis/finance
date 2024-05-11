@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "components/ui/sonner";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
@@ -18,16 +19,18 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-backgroundLight dark:bg-backgroundDark",
-          manrope.className
-        )}
-      >
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "bg-backgroundLight dark:bg-backgroundDark",
+            manrope.className
+          )}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

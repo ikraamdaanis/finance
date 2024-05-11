@@ -1,3 +1,5 @@
+import { SignUp } from "@clerk/nextjs";
+
 export default async function SignUpPage() {
-  return <div>Sign Up</div>;
+  return <SignUp path="/sign-up" />;
 }
