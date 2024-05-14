@@ -5,6 +5,7 @@ import { Manrope } from "next/font/google";
 import { ReactNode } from "react";
 import { cn } from "utils/cn";
 import "./globals.css";
+import { QueryProvider } from "providers/QueryProvider";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -27,8 +28,10 @@ export default function RootLayout({ children }: Props) {
             manrope.className
           )}
         >
-          {children}
-          <Toaster />
+          <QueryProvider>
+            {children}
+            <Toaster />
+          </QueryProvider>
         </body>
       </html>
     </ClerkProvider>
