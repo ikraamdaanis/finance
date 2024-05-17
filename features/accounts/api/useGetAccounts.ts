@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { client } from "utils/hono";
 
+/**
+ * Gets the user's accounts from the database.
+ */
 export function useGetAccounts() {
-  const query = useQuery({
+  return useQuery({
     queryKey: ["accounts"],
     queryFn: async () => {
       const response = await client.api.accounts.$get();
@@ -16,6 +19,4 @@ export function useGetAccounts() {
       return data;
     }
   });
-
-  return query;
 }
