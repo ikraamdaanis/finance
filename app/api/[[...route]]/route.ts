@@ -1,5 +1,5 @@
 import { clerkMiddleware } from "@hono/clerk-auth";
-import accounts from "app/api/[[...route]]/accounts";
+import accounts from "./app";
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { handle } from "hono/vercel";
